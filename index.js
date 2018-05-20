@@ -1,5 +1,5 @@
 var _MessagesContentAPI = require('./src/MessagesContentAPI');
-exports.MessagesContentAPI = _MessagesContentAPI.default;
+module.exports.MessagesContentAPI = _MessagesContentAPI;
 
 var _ProspectsAPI = require('./src/ProspectsAPI');
-exports.ProspectsAPI = _ProspectsAPI.default;
+module.exports.ProspectsAPI = _ProspectsAPI;
