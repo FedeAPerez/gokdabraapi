@@ -17,8 +17,8 @@ var  BusinessAPI = function() {
     }
 
     var getBusinessByName = function(name) {
-      return _getBusiness().find(function(business_name){
-        return business_name.toLowerCase() == name.toLowerCase();
+      return _getBusiness().find(function(business){
+        return business.business_name.toLowerCase() == name.toLowerCase();
       });
     }
 
