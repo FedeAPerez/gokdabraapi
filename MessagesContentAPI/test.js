@@ -1,3 +1,2 @@
-var MessagesContentAPI = require('./MessagesContentAPI');
-
+var  MessagesContentAPI = require('./MessagesContentAPI');
 console.log(MessagesContentAPI.getMessageContentFromId("footer-hint"));

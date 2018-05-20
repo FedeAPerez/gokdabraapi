@@ -1,5 +1,9 @@
-const MessagesContentAPI = require('./MessagesContentAPI');
+var _MessagesContentAPI = require('./MessagesContentAPI');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+exports.default = undefined;
 
-module.exports = function(id_message_content) {
-    MessagesContentAPI(id_message_content);
-};
+var MessagesContentAPI = require('./MessagesContentAPI');
+
+exports.default = MessagesContentAPI.default;
