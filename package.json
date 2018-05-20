@@ -1,0 +1,15 @@
+{
+  "name": "@gokdabra/gokdabraapi",
+  "version": "1.0.0",
+  "description": "connection to main api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "fedeaperez",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FedeAPerez/gokdabraapi"
+  }
+}
