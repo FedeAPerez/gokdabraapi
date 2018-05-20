@@ -10,12 +10,12 @@ var  BusinessAPI = function() {
     ]
 
     var all = function() {
-      return this.business;
+      return business;
     }
 
     var getBusinessByName = function(name) {
       const isBusiness = p => p.business_name.toLowerCase() === name.toLowerCase();
-      return this.business.find(isBusiness);
+      return business.find(isBusiness);
     }
 
     return {

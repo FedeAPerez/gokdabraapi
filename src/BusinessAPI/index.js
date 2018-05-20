@@ -1,2 +1,2 @@
-var BusinessAPI = require('./ProspectsAPI');
+var BusinessAPI = require('./BusinessAPI');
 module.exports = BusinessAPI;

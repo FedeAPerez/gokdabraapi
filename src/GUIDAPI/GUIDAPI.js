@@ -1,6 +1,6 @@
-
-const GUIDAPI = {
-	guid: function() {
+'use strict';
+var GUIDAPI = function(){
+	var guid = function() {
 	  function s4() {
 	    return Math.floor((1 + Math.random()) * 0x10000)
 	      .toString(16)
@@ -9,6 +9,10 @@ const GUIDAPI = {
 	  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 	}
 
-  }
+	return {
+		guid: guid
+	}
+	
+}();
   
-export default GUIDAPI;
+module.exports = GUIDAPI;
