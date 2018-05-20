@@ -1,6 +1,6 @@
 {
   "name": "@gokdabra/gokdabraapi",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "connection to main api",
   "main": "./index.js",
   "author": "fedeaperez",
