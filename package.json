@@ -1,10 +1,10 @@
 {
   "name": "@gokdabra/gokdabraapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "connection to main api",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "node test.js"
   },
   "author": "fedeaperez",
   "license": "ISC",
