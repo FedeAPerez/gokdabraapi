@@ -23,4 +23,10 @@ console.log(BusinessAPI.getBusinessByName("doers"));
 
 var IntentAPI = require('./src/IntentAPI');
 
-console.log(IntentAPI.getIntentFromText("en qué horarios trabajás"));
+IntentAPI.getIntentFromText("en qué horarios trabajás")
+.then((res) => {
+    console.log(res.data.intent);
+})
+.catch((err) => {
+
+});

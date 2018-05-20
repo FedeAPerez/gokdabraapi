@@ -1,4 +1,4 @@
-import axios from 'axios';
+var axios = require ('axios');
 const intentServiceUrl = process.env.REACT_APP_BACK_URL.trim() + '/intent';
 
 var IntentAPI = function (){
