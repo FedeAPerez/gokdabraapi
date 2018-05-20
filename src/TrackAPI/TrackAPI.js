@@ -5,8 +5,9 @@ import axios from 'axios';
 
 const trackServiceURL = process.env.REACT_APP_BACK_URL.trim() + '/track';
 
-const TrackAPI = {
-    postDataToTrack: function(stack) {
+var TrackAPI = function(){
+  
+    var postDataToTrack = function(stack) {
       return axios(
           {
             method: 'post',
@@ -18,6 +19,10 @@ const TrackAPI = {
           }
         );
     }
-  }
+
+    return {
+      postDataToTrack : postDataToTrack
+    }
+}();
   
-export default TrackAPI;
+module.exports = TrackAPI;

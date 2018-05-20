@@ -1,17 +1,11 @@
-// A simple data API that will be used to get the data for our
-// components. On a real website, a more robust data fetching
-// solution would be more appropriate.
 
-import MeliAPI from './MeliAPI';
+'use strict';
+import MeliAPI from '../MeliAPI/MeliAPI';
 
-const MessagesAPI = {
-    business: [
-      { number: 1, business_name: "Doers", color: "#34495e" },
-      { number: 2, business_name: "KDABRA", color: "#e74c3c" },
-      { number: 3, business_name: "eColitas", color: "#2ecc71" },
-        { number: 4, business_name: "fotoflasheventos", color: "#2ecc71" }
-    ],
-    messages: [
+var MessagesAPI = function() {
+
+    var _getMessages = function () {
+        var messages = [
             {
                 'id_message':'msg_welcome',
                 'message_title':'',
@@ -371,19 +365,20 @@ const MessagesAPI = {
                 'response_expected':{
                     'type':'text_input'
                 }
-            }
-        
-    ],
-    all: function() { return this.business},
-    getFirstMessage: function(business_name_param) {
-      return this.messages[0];
-    },
-    getMessageById: function(id_message) {
-        var that = this;
+            }   
+    ];
+    return messages;
+    }
+
+    var getFirstMessage = function(business_name_param) {
+      return _getMessages()[0];
+    }
+
+    var getMessageById = function(id_message) {
         return new Promise(function(resolve, reject) {
             const isMessage = p => p.id_message == id_message;
 
-            var message = that.messages.find(isMessage);
+            var message = _getMessages().find(isMessage);
             var thatMessage = {};
             thatMessage.message = message;
 
@@ -407,13 +402,14 @@ const MessagesAPI = {
                 resolve(thatMessage.message);
             }
         });
-    },
-    getMessageByIntent: function(id_business, id_intent) {
+    }
+
+    var getMessageByIntent = function(id_business, id_intent) {
         // Obteng el intent en caso de que sea un intento de text-input
 
         const isBusiness = p => p.business_name.toLowerCase() === id_business.toLowerCase();
         var messagesForBusiness = [];
-        messagesForBusiness = this.messages.filter(isBusiness);
+        messagesForBusiness = _getMessages().filter(isBusiness);
 
         const isIntent = p => p.intent === id_intent;
         var messageSelected = [];
@@ -427,4 +423,4 @@ const MessagesAPI = {
     }
   }
   
-  export default MessagesAPI;
+module.exports = MessagesAPI;

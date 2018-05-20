@@ -1,9 +1,9 @@
 import axios from 'axios';
 const intentServiceUrl = process.env.REACT_APP_BACK_URL.trim() + '/intent';
 
-export class IntentAPI {
+var IntentAPI = function (){
 
-    static getIntentFromText(text) {
+    var getIntentFromText = function(text) {
         return axios(
         {
           method: 'post',
@@ -16,6 +16,9 @@ export class IntentAPI {
         );
 
     }
-}
+    return {
+      getIntentFromText : getIntentFromText
+    }
+}();
 
-export default IntentAPI;
+module.exports = IntentAPI;

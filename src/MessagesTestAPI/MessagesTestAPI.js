@@ -2,15 +2,10 @@
 // components. On a real website, a more robust data fetching
 // solution would be more appropriate.
 
-import MeliAPI from './MeliAPI';
+import MeliAPI from '../MeliAPI';
 
-const MessagesAPI = {
-    business: [
-     { number: 5, business_name: "dexter", color: "#2ecc71", version: ''},
-
-      { number: 6, business_name: "prune", color: "#2ecc71", version: ''}
-    ],
-    messages: [
+var MessagesAPI = function(){
+    var messages = [
             {
                 'id_message':'msg_welcome',
                 'message_title':'',
@@ -145,16 +140,15 @@ const MessagesAPI = {
                 }
             }
         
-    ],
-    all: function() { return this.business},
-    getFirstMessage: function(business_name_param) {
-      return this.messages[0];
-    },
+    ]
 
-    getMeliMessage: function(stack) {
+    var getFirstMessage = function() {
+      return messages[0];
+    }
+
+    var getMeliMessage = function(stack) {
         var that = this;
         return new Promise(function(resolve, reject) {
-            console.log(stack);
             const isMessage = p => p.id_message == "msg_product";
 
             var message = that.messages.find(isMessage);
@@ -191,9 +185,9 @@ const MessagesAPI = {
                 reject(err);
             });
         });
-    },
+    }
 
-    getMessageById: function(id_message) {
+    var getMessageById = function(id_message) {
         var that = this;
         return new Promise(function(resolve, reject) {
             const isMessage = p => p.id_message == id_message;
@@ -204,24 +198,30 @@ const MessagesAPI = {
 
             resolve(thatMessage.message);
         });
-    },
-    getMessageByIntent: function(id_business, id_intent) {
+    }
+    var getMessageByIntent = function(id_business, id_intent) {
         // Obteng el intent en caso de que sea un intento de text-input
 
         const isBusiness = p => p.business_name.toLowerCase() === id_business.toLowerCase();
         var messagesForBusiness = [];
-        messagesForBusiness = this.messages.filter(isBusiness);
+        messagesForBusiness = messages.filter(isBusiness);
 
         const isIntent = p => p.intent === id_intent;
         var messageSelected = [];
         messageSelected = messagesForBusiness.filter(isIntent);
 
         if(messageSelected.length == 0) {
-            return this.getMessageByIntent('default', id_intent);
+            return getMessageByIntent('default', id_intent);
         }
 
         return messageSelected[0];
     }
-  }
+
+    return {
+        getMessageByIntent : getMessageByIntent,
+        getMessageById : getMessageById,
+        getFirstMessage : getFirstMessage
+    }
+}();
   
-  export default MessagesAPI;
+module.exports = MessagesAPI;

@@ -19,3 +19,8 @@ console.log(GUIDAPI.guid());
 var BusinessAPI = require('./src/BusinessAPI');
 
 console.log(BusinessAPI.getBusinessByName("doers"));
+
+
+var IntentAPI = require('./src/IntentAPI');
+
+console.log(IntentAPI.getIntentFromText("en qué horarios trabajás"));
