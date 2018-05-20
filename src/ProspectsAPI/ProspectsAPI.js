@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 var axios = require('axios');
 const businessServiceUrl = process.env.REACT_APP_BACK_URL.trim() + '/business/prospect';
 
