@@ -1,12 +1,12 @@
 // A simple data API that will be used to get the data for our
 // components. On a real website, a more robust data fetching
 // solution would be more appropriate.
-import axios from 'axios';
+var axios = require('axios');
 const meliServiceUrl = 'https://api.mercadolibre.com/items/';
 const meliBackDexter = process.env.REACT_APP_BACK_URL.trim() + '/meli/dexter/shoes';
 
-const MeliAPI = {
-    getInfoByMLA: function(mla) {
+var MeliAPI = function(){
+    var getInfoByMLA = function(mla) {
       return axios(
           {
             method: 'get',
@@ -14,8 +14,9 @@ const MeliAPI = {
             headers: {'Content-Type': 'application/json'}
           }
         );
-    },
-    getInfoByData: function(stack) {
+    }
+
+    var getInfoByDat = function(stack) {
       return axios(
           {
             method: 'post',
@@ -29,6 +30,10 @@ const MeliAPI = {
           }
         );
     }
-  }
+    return {
+      getInfoByDat : getInfoByDat,
+      getInfoByMLA : getInfoByMLA
+    }
+}();
   
-export default MeliAPI
+module.exports = MeliAPI;

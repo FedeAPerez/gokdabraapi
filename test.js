@@ -30,3 +30,6 @@ IntentAPI.getIntentFromText("en qué horarios trabajás")
 .catch((err) => {
 
 });
+
+var MessagesAPI = require('./src/MessagesAPI');
+console.log(MessagesAPI.getFirstMessage().message);

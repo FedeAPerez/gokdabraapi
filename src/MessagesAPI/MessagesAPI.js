@@ -1,6 +1,5 @@
-
 'use strict';
-import MeliAPI from '../MeliAPI/MeliAPI';
+var  MeliAPI = require('../MeliAPI/MeliAPI');
 
 var MessagesAPI = function() {
 
@@ -370,7 +369,7 @@ var MessagesAPI = function() {
     return messages;
     }
 
-    var getFirstMessage = function(business_name_param) {
+    var getFirstMessage = function() {
       return _getMessages()[0];
     }
 
@@ -421,6 +420,12 @@ var MessagesAPI = function() {
 
         return messageSelected[0];
     }
-  }
+
+    return {
+        getMessageByIntent : getMessageByIntent,
+        getMessageById : getMessageById,
+        getFirstMessage : getFirstMessage 
+    }
+}();
   
 module.exports = MessagesAPI;
