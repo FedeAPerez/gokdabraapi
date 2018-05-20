@@ -2,10 +2,7 @@
   "name": "@gokdabra/gokdabraapi",
   "version": "1.0.9",
   "description": "connection to main api",
-  "main": "index.js",
-  "scripts": {
-    "test": "set REACT_APP_BACK_URL=http://localhost:5000 && node test.js"
-  },
+  "main": "./index.js",
   "author": "fedeaperez",
   "license": "ISC",
   "repository": {
