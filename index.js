@@ -9,7 +9,7 @@ var _BusinessAPI = require('./src/BusinessAPI');
 var _GUIDAPI = require('./src/GUIDAPI');
 var _TrackAPI = require('./src/TrackAPI');
 var _IntentAPI = require('./src/IntentAPI');
-var _MessagesAPI =require('./src/MessagesAPI');
+var _MessagesAPI = require('./src/MessagesAPI');
 
 exports.MessagesContentAPI = _MessagesContentAPI;
 exports.ProspectsAPI = _ProspectsAPI;

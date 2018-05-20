@@ -375,9 +375,10 @@ var MessagesAPI = function() {
 
     var getMessageById = function(id_message) {
         return new Promise(function(resolve, reject) {
-            const isMessage = p => p.id_message == id_message;
 
-            var message = _getMessages().find(isMessage);
+            var message = _getMessages().find(function(message) {
+                return message.id_message == id_message;
+            });
             var thatMessage = {};
             thatMessage.message = message;
 
@@ -406,13 +407,15 @@ var MessagesAPI = function() {
     var getMessageByIntent = function(id_business, id_intent) {
         // Obteng el intent en caso de que sea un intento de text-input
 
-        const isBusiness = p => p.business_name.toLowerCase() === id_business.toLowerCase();
         var messagesForBusiness = [];
-        messagesForBusiness = _getMessages().filter(isBusiness);
-
-        const isIntent = p => p.intent === id_intent;
+        messagesForBusiness = _getMessages().filter(function(business) {
+            return business.business_name.toLowerCase() == id_business.toLowerCase();
+        });
+        
         var messageSelected = [];
-        messageSelected = messagesForBusiness.filter(isIntent);
+        messageSelected = messagesForBusiness.filter(function(messages) {
+            return messages.intent == id_intent;
+        });
 
         if(messageSelected.length == 0) {
             return this.getMessageByIntent('default', id_intent);

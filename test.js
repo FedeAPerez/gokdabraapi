@@ -33,3 +33,7 @@ IntentAPI.getIntentFromText("en qué horarios trabajás")
 
 var MessagesAPI = require('./src/MessagesAPI');
 console.log(MessagesAPI.getFirstMessage().message);
+
+
+var MessagesAPI = require('./src/MessagesAPI');
+console.log(MessagesAPI.getMessageByIntent("doers", "opening_hours").message);
