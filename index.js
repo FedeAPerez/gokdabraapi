@@ -1,4 +1,10 @@
-var MessagesContentAPI = require('./src/MessagesContentAPI');
-var ProspectsAPI = require('./src/ProspectsAPI');
+'use strict';
 
-module.exports = {MessagesContentAPI,  ProspectsAPI};
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _MessagesContentAPI = require('./src/MessagesContentAPI');
+var _ProspectsAPI = require('./src/ProspectsAPI');
+
+exports.MessagesContentAPI = _MessagesContentAPI;
+exports.ProspectsAPI = _ProspectsAPI;
