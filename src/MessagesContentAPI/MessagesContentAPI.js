@@ -20,6 +20,7 @@ var MessagesContentAPI = function () {
     return {
         getMessageContentFromId : getMessageContentFromId
     }
+    
 }();
 
 module.exports = MessagesContentAPI;

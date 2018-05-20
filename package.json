@@ -4,12 +4,15 @@
   "description": "connection to main api",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "set REACT_APP_BACK_URL=http://localhost:8000 && node test.js"
   },
   "author": "fedeaperez",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FedeAPerez/gokdabraapi"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
