@@ -1,6 +1,6 @@
 {
   "name": "@gokdabra/gokdabraapi",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "connection to main api",
   "main": "./index.js",
   "author": "fedeaperez",
@@ -13,6 +13,6 @@
     "axios": "^0.18.0"
   },
   "scripts": {
-    "test":"set REACT_APP_BACK_URL=http://localhost:5000 && node test.js"
+    "test": "set REACT_APP_BACK_URL=http://localhost:5000 && node test.js"
   }
 }
