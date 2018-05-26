@@ -13,6 +13,13 @@
     "axios": "^0.18.0"
   },
   "scripts": {
-    "test": "set REACT_APP_BACK_URL=http://localhost:5000 && node test.js"
+    "test-un": "set REACT_APP_BACK_URL=http://localhost:5000 && node test.js",
+    "test": "set REACT_APP_BACK_URL=http://localhost:5000 && mocha --recursive test",
+    "test-options": "set REACT_APP_BACK_URL=http://localhost:5000 && mocha ./test/OptionsAPI"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.2.0"
   }
 }

@@ -20,6 +20,24 @@ var BusinessAPI = require('./src/BusinessAPI');
 
 console.log(BusinessAPI.getBusinessByName("doers"));
 
+var BusinessAPI = require('./src/BusinessAPI');
+
+BusinessAPI.getBusinessByName2("ecolitas")
+.then((res) => {
+	console.log(res.data);
+})
+.catch((err) => {
+	console.log(err.data);
+});
+/*
+BusinessAPI.postBusiness({business_name:"ecolitas", contact_mail:"mailmail@mail.com"})
+.then((res) => {
+	console.log(res.data);
+})
+.catch((err) => {
+	console.log(err.data);
+});*/
+
 
 var IntentAPI = require('./src/IntentAPI');
 

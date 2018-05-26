@@ -10,6 +10,7 @@ var _GUIDAPI = require('./src/GUIDAPI');
 var _TrackAPI = require('./src/TrackAPI');
 var _IntentAPI = require('./src/IntentAPI');
 var _MessagesAPI = require('./src/MessagesAPI');
+var _OptionsAPI = require('./src/OptionsAPI');
 
 exports.MessagesContentAPI = _MessagesContentAPI;
 exports.ProspectsAPI = _ProspectsAPI;
@@ -18,3 +19,4 @@ exports.GUIDAPI = _GUIDAPI;
 exports.TrackAPI = _TrackAPI;
 exports.IntentAPI = _IntentAPI;
 exports.MessagesAPI = _MessagesAPI;
+exports.OptionsAPI = _OptionsAPI;
