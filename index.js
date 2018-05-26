@@ -11,6 +11,7 @@ var _TrackAPI = require('./src/TrackAPI');
 var _IntentAPI = require('./src/IntentAPI');
 var _MessagesAPI = require('./src/MessagesAPI');
 var _OptionsAPI = require('./src/OptionsAPI');
+var _OptionsBusinessAPI = require('./src/OptionsBusinessAPI');
 
 exports.MessagesContentAPI = _MessagesContentAPI;
 exports.ProspectsAPI = _ProspectsAPI;
@@ -20,3 +21,4 @@ exports.TrackAPI = _TrackAPI;
 exports.IntentAPI = _IntentAPI;
 exports.MessagesAPI = _MessagesAPI;
 exports.OptionsAPI = _OptionsAPI;
+exports.OptionsBusinessAPI = _OptionsBusinessAPI;

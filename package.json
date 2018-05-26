@@ -15,7 +15,8 @@
   "scripts": {
     "test-un": "set REACT_APP_BACK_URL=http://localhost:5000 && node test.js",
     "test": "set REACT_APP_BACK_URL=http://localhost:5000 && mocha --recursive test",
-    "test-options": "set REACT_APP_BACK_URL=http://localhost:5000 && mocha ./test/OptionsAPI"
+    "test-options": "set REACT_APP_BACK_URL=http://localhost:5000 && mocha ./test/OptionsAPI",
+    "test-options-business": "set REACT_APP_BACK_URL=http://localhost:5000 && mocha ./test/OptionsBusinessAPI"
   },
   "devDependencies": {
     "chai": "^4.1.2",

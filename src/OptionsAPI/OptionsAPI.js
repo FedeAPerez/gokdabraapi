@@ -12,22 +12,10 @@ var  OptionsAPI = function() {
           headers: {'Content-Type': 'application/json'}
         }
       );
-    }
-
-    var _getOptionsByBusiness = function(obj){
-      return axios(
-          {
-            method: 'post',
-            url: optionsServiceUrl,
-            headers: {'Content-Type': 'application/json'},
-            data: obj
-          }
-      );
-    }
+    };
 
     return {
-      getAllOptions : _getAllOptions,
-      getOptionsByBusiness : _getOptionsByBusiness
+      getAllOptions : _getAllOptions
     }
   }();
   
