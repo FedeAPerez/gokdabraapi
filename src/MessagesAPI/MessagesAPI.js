@@ -355,11 +355,12 @@ var MessagesAPI = function() {
             });
 
             if(messageSelected.length == 0) {
+                console.log("me quedó como que no lo encontré");
                 resolve(this.getMessageByIntent('default', id_intent));
             }
             else {
                 var obj = {};
-                obj.id_business = id_business;
+                obj.id_business = id_business.toLowerCase();
                 obj.id_option = id_intent;
                 OptionsBusinessAPI.getMessageByBusinessOption(obj)
                 .then((res) => {
