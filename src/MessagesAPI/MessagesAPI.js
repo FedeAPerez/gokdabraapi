@@ -355,8 +355,10 @@ var MessagesAPI = function() {
             });
 
             if(messageSelected.length == 0) {
-                console.log("me quedó como que no lo encontré");
-                resolve(this.getMessageByIntent('default', id_intent));
+                getMessageByIntent('default', id_intent)
+                .then((res) => {
+                    resolve(res);
+                })
             }
             else {
                 var obj = {};
