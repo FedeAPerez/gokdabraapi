@@ -1,6 +1,6 @@
 'use strict';
 var axios = require ('axios');
-const optionsServiceUrl = process.env.REACT_APP_BACK_URL.trim() + '/optionsbusiness';
+const businessOptionsServiceUrl = process.env.REACT_APP_BACK_URL.trim() + '/optionsbusiness';
 
 var  OptionsBusinessAPI = function() {
 
@@ -8,7 +8,17 @@ var  OptionsBusinessAPI = function() {
       return axios(
           {
             method: 'get',
-            url: optionsServiceUrl + '/' + obj.id_business,
+            url: businessOptionsServiceUrl + '/' + obj.id_business,
+            headers: {'Content-Type': 'application/json'}
+          }
+      );
+    };
+
+    var _getMessageByBusinessOption = function(obj) {
+      return axios(
+          {
+            method: 'get',
+            url: businessOptionsServiceUrl + '/' + obj.id_business + '/' + obj.id_option,
             headers: {'Content-Type': 'application/json'}
           }
       );
@@ -18,7 +28,7 @@ var  OptionsBusinessAPI = function() {
       return axios(
         {
           method: 'post',
-          url: optionsServiceUrl + '/' + obj.id_business + '/' + obj.id_option,
+          url: businessOptionsServiceUrl + '/' + obj.id_business + '/' + obj.id_option,
           headers: {'Content-Type': 'application/json'},
           data: obj
         }
@@ -27,6 +37,7 @@ var  OptionsBusinessAPI = function() {
 
     return {
       getOptionsByBusiness : _getOptionsByBusiness,
+      getMessageByBusinessOption : _getMessageByBusinessOption,
       saveOptionForBusiness : _saveOptionForBusiness
     }
   }();

@@ -1,7 +1,12 @@
 'use strict';
 var  MeliAPI = require('../MeliAPI/MeliAPI');
+var  OptionsBusinessAPI = require('../OptionsBusinessAPI/OptionsBusinessAPI');
 
 var MessagesAPI = function() {
+
+    // var businessMessage = function(obj) {
+    //     this.class_used = 
+    // };
 
     var _getMessages = function () {
             var messages = [
@@ -19,10 +24,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'sender_show':'KDABRA',
                     'intent':'welcome',
-                    'scroll':'true',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'scroll':'true'
                 },
                 {
                     'id_message':'msg_thanks',
@@ -37,10 +39,7 @@ var MessagesAPI = function() {
                     },
                     'class_used':'left-titulo-linea',
                     'intent':'thanks',
-                    'scroll':'true',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'scroll':'true'
                 },
                 {
                     'id_message':'msg_use_input',
@@ -50,10 +49,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'sender_show':'KDABRA',
                     'intent':'text_input',
-                    'scroll':'true',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'scroll':'true'
                 },
                 {
                     'id_message':'msg_onboarding_kdabra',
@@ -64,10 +60,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'intent':'onboarding_kdabra',
                     'scroll':'true',
-                    'sender_show':'KDABRA',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'sender_show':'KDABRA'
                 },
                 {
                     'id_message':'msg_onboarding_kdabra_2',
@@ -78,10 +71,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'intent':'onboarding_kdabra_2',
                     'next_message':'msg_onboarding_kdabra_3',
-                    'scroll':'false',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'scroll':'false'
                 },
                 {
                     'id_message':'msg_onboarding_kdabra_3',
@@ -91,10 +81,7 @@ var MessagesAPI = function() {
                     'sender_show':'KDABRA',
                     'class_used':'left-linea',
                     'intent':'onboarding_kdabra_3',
-                    'scroll':'true',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'scroll':'true'
                 },
                 {
                     'id_message':'msg_opening_hours',
@@ -104,10 +91,7 @@ var MessagesAPI = function() {
                     'message':'<h3>Nuestro horario es de 9 a 18 hs de lunes a viernes. Sábados y domingos de 10 a 20hs. &#x231A</h3>',
                     'class_used':'left-linea',
                     'scroll':'true',
-                    'intent':'opening_hours',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'opening_hours'
                 },
                 {
                     'id_message':'msg_opening_hours',
@@ -123,10 +107,7 @@ var MessagesAPI = function() {
                         'show_message': '¿Cómo me contacto con ustedes?'
                     },
                     'scroll':'true',
-                    'intent':'opening_hours',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'opening_hours'
                 },
                 {
                     'id_message':'msg_opening_hours',
@@ -136,10 +117,7 @@ var MessagesAPI = function() {
                     'message':'<h3>Operamos durante todo el día, y los fines de semana hacemos horario nocturno de 10pm a 2am.  &#x231A</h3>',
                     'class_used':'left-linea',
                     'scroll':'true',
-                    'intent':'opening_hours',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'opening_hours'
                 },
                 {
                     'id_message':'msg_know_payments',
@@ -149,10 +127,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'scroll':'true',
                     'sender_show':'KDABRA',
-                    'intent':'payments',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'payments'
                 },
                 {
                     'id_message':'msg_know_payments',
@@ -162,10 +137,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'scroll':'true',
                     'intent':'payments',
-                    'sender_show':'KDABRA',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'sender_show':'KDABRA'
                 },
                 {
                     'id_message':'msg_know_payments',
@@ -175,10 +147,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'sender_show':'KDABRA',
                     'scroll':'true',
-                    'intent':'payments',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'payments'
                 },
                 {
                     'id_message':'msg_talk_agent',
@@ -188,10 +157,7 @@ var MessagesAPI = function() {
                     'class_used':'left-linea',
                     'scroll':'true',
                     'intent':'talk_agent',
-                    'sender_show':'KDABRA',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'sender_show':'KDABRA'
                 },
                 {
                     'id_message':'msg_map',
@@ -207,10 +173,7 @@ var MessagesAPI = function() {
                         'show_message': '¿Cuál es otro medio de contacto?'
                     },
                     'scroll':'true',
-                    'intent':'map',
-                    'response_expected':{
-                        'type':'text_input'
-                    },
+                    'intent':'map'
                 },
                 {
                     'id_message':'msg_map',
@@ -226,10 +189,7 @@ var MessagesAPI = function() {
                         'show_message': '¿Cómo me contacto con ustedes?'
                     },
                     'scroll':'true',
-                    'intent':'map',
-                    'response_expected':{
-                        'type':'text_input'
-                    },
+                    'intent':'map'
                 },
                 {
                     'id_message':'msg_map',
@@ -245,10 +205,7 @@ var MessagesAPI = function() {
                         'show_message': '¿Cuál es otro medio de contacto?'
                     },
                     'scroll':'true',
-                    'intent':'map',
-                    'response_expected':{
-                        'type':'text_input'
-                    },
+                    'intent':'map'
                 },
 
                 {
@@ -265,10 +222,7 @@ var MessagesAPI = function() {
                     },
                     'class_used':'left-linea',
                     'scroll':'true',
-                    'intent':'contact',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'contact'
                 },
                 {
                     'id_message':'msg_contact',
@@ -284,10 +238,7 @@ var MessagesAPI = function() {
                     },
                     'class_used':'left-linea',
                     'scroll':'true',
-                    'intent':'contact',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'contact'
                 },
                 {
                     'id_message':'msg_contact',
@@ -303,10 +254,7 @@ var MessagesAPI = function() {
                     },
                     'class_used':'left-linea',
                     'scroll':'true',
-                    'intent':'contact',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'contact'
                 },
                 {
                     'id_message':'msg_start_intro',
@@ -317,10 +265,7 @@ var MessagesAPI = function() {
                     'message':'<h3>Nos preocupamos por la salud y bienestar de los infantes. Por eso creamos eColitas, dándoles confort y protección en su higiene.</h3>',
                     'class_used':'left-linea',
                     'scroll':'true',
-                    'intent':'start',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'start'
                 },
                 {
                     'id_message':'msg_start_hook',
@@ -331,10 +276,7 @@ var MessagesAPI = function() {
                     'message':'<h3>Utilizamos telas certificadas internacionalmente con protección solar para las diferentes etapas de tu hijo... por eso te ofrecemos este producto!</h3>',
                     'class_used':'left-linea',
                     'scroll':'true',
-                    'intent':'start_hook',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'start_hook'
                 },
                 {
                     'id_message':'msg_start_product',
@@ -348,10 +290,7 @@ var MessagesAPI = function() {
                     'message':'',
                     'class_used':'left-product',
                     'scroll':'true',
-                    'intent':'start_product',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'intent':'start_product'
                 },
                 {
                     'id_message':'msg_ask_review',
@@ -360,10 +299,7 @@ var MessagesAPI = function() {
                     'message_title':'',
                     'sender_show':'KDABRA',
                     'message':'¿Qué te parece el producto que acabas de ver?',
-                    'class_used':'left-linea',
-                    'response_expected':{
-                        'type':'text_input'
-                    }
+                    'class_used':'left-linea'
                 }   
         ];
         return messages;
@@ -420,12 +356,66 @@ var MessagesAPI = function() {
         if(messageSelected.length == 0) {
             return this.getMessageByIntent('default', id_intent);
         }
+        else {
+            var obj = {};
+            obj.id_business = id_business;
+            boj.id_option = id_intent;
+            OptionsBusinessAPI.getMessageByBusinessOption(obj)
+            .then((res) => {
+                messageSelected[0].message = res.data.show_message;
+            })
+            .catch((err) => {
+                return messageSelected[0];
+            });
+        }
 
-        return messageSelected[0];
+    }
+
+    var BusinessMessage = function() {
+        this.data = {};
+
+        this.constructor = function(obj) {
+            this.data.status_code = obj.status_code;
+            this.data.class_used = obj.class_used;
+            this.data.id_message = obj.id_message;
+            this.data.message_title = obj.message_title;
+            this.data.message = obj.message;
+            this.data.id_business = obj.id_business;
+            this.data.sender_show = obj.sender_show;
+            this.data.intent = obj.intent;
+            this.data.scroll = obj.scroll;
+            this.data.next_message = obj.next_message || undefined;
+        };
+    };
+
+    var getMessageByIntent2 = function(obj) {
+        var promiseMessage = new Promise(function(resolve, reject) {
+            var businessMessage = new BusinessMessage();
+            OptionsBusinessAPI.getMessageByBusinessOption(obj)
+            .then((res) => {
+                var obj = {};
+                obj.status_code = 200;
+                obj.class_used = "left-linea";
+                obj.id_message = "msg_" + res.data.id_option;
+                obj.message_title = "";
+                obj.message = res.data.show_message;
+                obj.id_business = res.data.id_business;
+                obj.sender_show = "KDABRA";
+                obj.intent = res.data.id_option;
+                obj.scroll = true;
+                businessMessage.constructor(obj);
+                resolve(businessMessage);
+            })
+            .catch((err) => {
+                reject(err);
+            });
+        });
+        return promiseMessage;
     }
 
     return {
         getMessageByIntent : getMessageByIntent,
+        getMessageByIntent2 : getMessageByIntent2,
         getMessageById : getMessageById,
         getFirstMessage : getFirstMessage 
     }
