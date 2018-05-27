@@ -342,33 +342,38 @@ var MessagesAPI = function() {
 
     var getMessageByIntent = function(id_business, id_intent) {
         // Obteng el intent en caso de que sea un intento de text-input
-
-        var messagesForBusiness = [];
-        messagesForBusiness = _getMessages().filter(function(business) {
-            return business.business_name.toLowerCase() == id_business.toLowerCase();
-        });
-        
-        var messageSelected = [];
-        messageSelected = messagesForBusiness.filter(function(messages) {
-            return messages.intent == id_intent;
-        });
-
-        if(messageSelected.length == 0) {
-            return this.getMessageByIntent('default', id_intent);
-        }
-        else {
-            var obj = {};
-            obj.id_business = id_business;
-            boj.id_option = id_intent;
-            OptionsBusinessAPI.getMessageByBusinessOption(obj)
-            .then((res) => {
-                messageSelected[0].message = res.data.show_message;
-            })
-            .catch((err) => {
-                return messageSelected[0];
+        var MessagePromise = new Promise(function(resolve, reject) {
+            
+            var messagesForBusiness = [];
+            messagesForBusiness = _getMessages().filter(function(business) {
+                return business.business_name.toLowerCase() == id_business.toLowerCase();
             });
-        }
+            
+            var messageSelected = [];
+            messageSelected = messagesForBusiness.filter(function(messages) {
+                return messages.intent == id_intent;
+            });
 
+            if(messageSelected.length == 0) {
+                resolve(this.getMessageByIntent('default', id_intent));
+            }
+            else {
+                var obj = {};
+                obj.id_business = id_business;
+                obj.id_option = id_intent;
+                OptionsBusinessAPI.getMessageByBusinessOption(obj)
+                .then((res) => {
+                    if(res.data.status_code == 200)
+                        messageSelected[0].message = res.data.show_message;
+                    
+                    resolve(messageSelected[0]);
+                })
+                .catch((err) => {
+                    resolve(messageSelected[0]);
+                });
+            }
+        });
+        return MessagePromise;
     }
 
     var BusinessMessage = function() {

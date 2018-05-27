@@ -34,8 +34,49 @@ describe('MessagesAPI', function() {
 
   });
 
-  describe('Add Business', function() {
-
+  describe('Get Message - Deprecated', function() {
+    it('Debería retornar un mensaje de negocio de KDABRA escrito por usuario\n\t'+
+     ' - Con id_option'+
+     ' - Respondiendo con propiedad id_message, message_title, message, class_used, id_business, sender_show, intent, scroll\n\t',
+        (done) => {
+            MessagesAPI.getMessageByIntent(
+                "doers",
+                "contact"
+            ).should.be.fulfilled.then((message) => {
+                message.should.have.property("id_message");
+                message.should.have.property("message_title");
+                message.should.have.property("message");
+                message.message.should.equal("Podés contactarte con nosotros por temas relacionados a KDABRA, usando el mail hola@gokdabra.com");
+                message.should.have.property("class_used");
+                message.should.have.property("business_name");
+                message.should.have.property("sender_show");
+                message.should.have.property("intent");
+                message.should.have.property("scroll");
+            })
+            .should.notify(done);
+      }
+    );
+    it('Debería retornar un mensaje de negocio de KDABRA configurado por base\n\t'+
+     ' - Con id_option'+
+     ' - Respondiendo con propiedad id_message, message_title, message, class_used, id_business, sender_show, intent, scroll\n\t',
+        (done) => {
+            MessagesAPI.getMessageByIntent(
+                "doers",
+                "map"
+            ).should.be.fulfilled.then((message) => {
+                message.should.have.property("id_message");
+                message.should.have.property("message_title");
+                message.should.have.property("message");
+                message.message.should.equal("<h3>¡No tenemos fronteras! &#x1F5FA Podés contactarte desde cualquier punto del país y vamos a interactuar con vos.</h3>");
+                message.should.have.property("class_used");
+                message.should.have.property("business_name");
+                message.should.have.property("sender_show");
+                message.should.have.property("intent");
+                message.should.have.property("scroll");
+            })
+            .should.notify(done);
+      }
+    );
   });
     
 });
