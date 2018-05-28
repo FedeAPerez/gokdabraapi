@@ -359,6 +359,9 @@ var MessagesAPI = function() {
                 .then((res) => {
                     resolve(res);
                 })
+                .catch((err) => {
+                    reject(err);
+                });
             }
             else {
                 var obj = {};
