@@ -335,7 +335,7 @@ var MessagesAPI = function() {
         });
     }
 
-    var getMessageByIntent = function(id_business, id_intent) {
+    var getMessageByIntent = function(id_business, id_intent, callbackResolve, callbackReject) {
         // Obteng el intent en caso de que sea un intento de text-input
         var MessagePromise = new Promise(function(resolve, reject) {
             
@@ -349,33 +349,33 @@ var MessagesAPI = function() {
                 return messages.intent == id_intent;
             });
 
-            if(messageSelected.length == 0) {
-                getMessageByIntent('default', id_intent)
-                .then((res) => {
-                    resolve(res);
-                })
-                .catch((err) => {
-                    reject(err);
+            if(messageSelected.length === 0) {
+                getMessageByIntent('default', id_intent,
+                function(resolvedCallback) {
+                    resolve(resolvedCallback);
+                },
+                function(rejectedCallback) {
+                    reject(rejectedCallback);
                 });
             }
             else {
                 var obj = {};
                 obj.id_business = id_business.toLowerCase();
                 obj.id_option = id_intent;
-                OptionsBusinessAPI.getMessageByBusinessOption(obj)
-                .then((res) => {
-                    if(res.data.status_code == 200)
+                OptionsBusinessAPI.getMessageByBusinessOption(obj,
+                    function(res) {
+                        if(res.data.status_code == 200)
                         messageSelected[0].message = res.data.show_message;
-                    
-                    resolve(messageSelected[0]);
-                })
-                .catch((err) => {
-                    resolve(messageSelected[0]);
-                });
+                        resolve(messageSelected[0]);
+                    },
+                    function(err) {
+                        resolve(messageSelected[0]);
+                    }
+                );
             }
         });
         return MessagePromise;
-    }
+    };
 
     var BusinessMessage = function() {
         this.data = {};
