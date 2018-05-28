@@ -3,11 +3,6 @@ var  MeliAPI = require('../MeliAPI/MeliAPI');
 var  OptionsBusinessAPI = require('../OptionsBusinessAPI/OptionsBusinessAPI');
 
 var MessagesAPI = function() {
-
-    // var businessMessage = function(obj) {
-    //     this.class_used = 
-    // };
-
     var _getMessages = function () {
             var messages = [
                 {
